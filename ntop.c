@@ -1650,7 +1650,7 @@ int _tmain(int argc, TCHAR *argv[])
             TCHAR *Context;
             TCHAR *Token = _tcstok_s(argv[i], Delim, &Context);
             while(Token && NameFilterCount < MAX_NAMEPARTS) {
-              strcpy_s(NameFilterList[NameFilterCount++], sizeof(Token) < MAX_NAMEPARTSIZE ? sizeof(Token) : MAX_NAMEPARTSIZE, Token);
+              strcpy_s(NameFilterList[NameFilterCount++], sizeof(Token) + 1 < MAX_NAMEPARTSIZE ? sizeof(Token) + 1 : MAX_NAMEPARTSIZE, Token);					
               Token = _tcstok_s(0, Delim, &Context);
             }
 
